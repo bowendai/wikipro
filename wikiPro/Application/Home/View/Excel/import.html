@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<extend name="template/common" />
+<block name='main'>
+<h1>此页面提供Excel的上传</h1>
+<!-- 1.上传文件到服务器 -->
+<form action="__URL__/upload" enctype="multipart/form-data" method="post" >
+  <a href="javascript:void(0);" class="easyui-linkbutton c5 file" style="width:120px;height:40px;" onclick="">
+    <input type="file" name="photo" class="easyui-linkbutton c5"/>
+  </a>
+  <h1></h1>
+  </p>
+    <input type="submit" value="开始导入" class="easyui-linkbutton c5" style="width:70px;height:20px;" >
+  </p>
+
+</form>
+</block>
+<block name='left'>
+</block>
+<block name="breadcrumbs">
+</block>
+</html>

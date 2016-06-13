@@ -1,0 +1,7 @@
+====== hello world! ======
+//这是斜体//
+__下划线__
+代码 cq1
+
+''$conf['title']       = 'DokuWiki';''
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<extend name="template/common" />
+	
+	<block name="main">
+	   <div>
+		<link href="__PUBLIC__/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/chosen.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/datepicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/colorpicker.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/ace-skins.min.css" />
+
+		<script src="__PUBLIC__/assets/js/ace-extra.min.js"></script>
+		
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='__PUBLIC__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<!--<script src="__PUBLIC__/assets/js/bootstrap.min.js"></script>-->
+		<script src="__PUBLIC__/assets/js/typeahead-bs2.min.js"></script>
+
+		<script src="__PUBLIC__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="__PUBLIC__/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="__PUBLIC__/assets/js/chosen.jquery.min.js"></script>
+		<script src="__PUBLIC__/assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="__PUBLIC__/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="__PUBLIC__/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="__PUBLIC__/assets/js/date-time/moment.min.js"></script>
+		<script src="__PUBLIC__/assets/js/date-time/daterangepicker.min.js"></script>
+		<script src="__PUBLIC__/assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="__PUBLIC__/assets/js/jquery.knob.min.js"></script>
+		<script src="__PUBLIC__/assets/js/jquery.autosize.min.js"></script>
+		<script src="__PUBLIC__/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="__PUBLIC__/assets/js/jquery.maskedinput.min.js"></script>
+		<script src="__PUBLIC__/assets/js/bootstrap-tag.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="__PUBLIC__/assets/js/ace-elements.min.js"></script>
+		<script src="__PUBLIC__/assets/js/ace.min.js"></script>
+		
+		<script>
+			$("#sidebar").removeClass("menu-min");			
+			
+			$(document).ready(function() { 				
+				//var verShow = <?php echo json_encode($verShow['content']) ?> ;				
+				//$("#wiki__text").val(verShow);
+				
+				var verid = <?php echo $verShow['id']; ?>;
+				var version = <?php echo $verShow['version']; ?>;
+				//取消按钮
+				$("#edbtn__cancel").click(function(){
+					
+					$('#dw__editform').attr('action', '__URL__/detail?id='+verid+'&version='+version);
+					
+				});
+				
+				//预览按钮
+				$("#edbtn__preview").click(function(){
+					
+					$('#dw__editform').attr('action', '__URL__/edit?id='+verid+'&do=preview&version='+version);
+					
+				});
+				
+				//保存按钮
+				$("#edbtn__save").click(function(){
+					$('#dw__editform').attr('action', '__URL__/add?id='+verid+'&version='+version);
+				});
+				
+			});
+		</script>
+		
+			<div class="page-content">
+				
+					<?php
+				
+					
+					?>	
+					<div class="col-xs-12">
+						<!-- PAGE CONTENT BEGINS -->
+						<h2 class="header smaller lighter blue">
+							{$topicArr.title}            
+							&nbsp;<small>创建时间:{$topicArr.create_time}&nbsp;&nbsp;&nbsp;当前版本号:{$verShow.version}</small>
+						</h2>
+					</div><!-- /.col -->
+				
+				
+					<div class="col-xs-12">
+						<!--<div class="well">-->
+							<font size=+1><?php include(template('main.php')); ?></font>
+						<!--</div>-->
+					</div>
+				
+			</div><!-- /.page-content -->
+				
+
+			
+
+			<!--<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>-->
+	
+		
+	</div>
+	</block>
+	
+</html>

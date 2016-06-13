@@ -1,0 +1,127 @@
+<html>
+
+    <!--<frameset rows="65,*" border=1 frameborder=1 framespacing=1>
+  
+      <frame src="__URL__/top" name="top">
+  
+      <frameset cols="20%,*">
+        <frame src="__URL__/left" name="left">
+        <frame src="__URL__/right" name="right">
+      </frameset>
+  
+    </frameset>-->
+    <extend name="template/common" />	
+    <block name="main">
+
+        <div>
+            <link href="__PUBLIC__/assets/css/bootstrap.min.css" rel="stylesheet" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/jquery-ui-1.10.3.custom.min.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/chosen.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/datepicker.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/bootstrap-timepicker.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/daterangepicker.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/colorpicker.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/ace.min.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/ace-rtl.min.css" />
+            <link rel="stylesheet" href="__PUBLIC__/assets/css/ace-skins.min.css" />
+
+            <style type="text/css">
+                #dw__toc{
+                    display:none;
+                }
+
+                .pagelist{ text-align:center; /*background:#f1f1f1;*/ padding:7px 0;}
+                .pagelist a{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; background:#fff; color:#6185a2;}
+                .pagelist span{ margin:0 5px; border:#6185a2 solid 1px; display:inline-block; padding:2px 6px 1px; line-height:16px; color:#6185a2; color:#fff; background:#6185a2;}
+
+            </style>
+
+            <script src="__PUBLIC__/assets/js/ace-extra.min.js"></script>
+
+            <script type="text/javascript">
+                window.jQuery || document.write("<script src='__PUBLIC__/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+            </script>
+
+            <script type="text/javascript">
+                if ("ontouchend" in document)
+                    document.write("<script src='__PUBLIC__/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+            </script>
+            <!--<script src="__PUBLIC__/assets/js/bootstrap.min.js"></script>-->
+            <script src="__PUBLIC__/assets/js/typeahead-bs2.min.js"></script>
+
+            <script src="__PUBLIC__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+            <script src="__PUBLIC__/assets/js/jquery.ui.touch-punch.min.js"></script>
+            <script src="__PUBLIC__/assets/js/chosen.jquery.min.js"></script>
+            <script src="__PUBLIC__/assets/js/fuelux/fuelux.spinner.min.js"></script>
+            <script src="__PUBLIC__/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+            <script src="__PUBLIC__/assets/js/date-time/bootstrap-timepicker.min.js"></script>
+            <script src="__PUBLIC__/assets/js/date-time/moment.min.js"></script>
+            <script src="__PUBLIC__/assets/js/date-time/daterangepicker.min.js"></script>
+            <script src="__PUBLIC__/assets/js/bootstrap-colorpicker.min.js"></script>
+            <script src="__PUBLIC__/assets/js/jquery.knob.min.js"></script>
+            <script src="__PUBLIC__/assets/js/jquery.autosize.min.js"></script>
+            <script src="__PUBLIC__/assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+            <script src="__PUBLIC__/assets/js/jquery.maskedinput.min.js"></script>
+            <script src="__PUBLIC__/assets/js/bootstrap-tag.min.js"></script>
+
+            <!-- ace scripts -->
+
+            <script src="__PUBLIC__/assets/js/ace-elements.min.js"></script>
+            <script src="__PUBLIC__/assets/js/ace.min.js"></script>
+
+
+            <script>
+                $(document).ready(function() {
+                    $("#sidebar").removeClass("menu-min");
+
+                    //图片链接到新的标签
+                    $('.well a').attr('target', '_blank');
+
+                });
+
+            </script>
+
+
+            <div class="page-content">
+
+                <div class="col-xs-12">
+                    <a href="__URL__/create/id/{$navigation_id}"><button id="createTopic" type="button" class="btn  btn-success">创建话题</button></a>
+                </div>
+
+                <volist name="list" id="vo" key="i">
+                    <!--<div class="row">-->
+                    <div class="col-xs-12">
+                        <!--<div class="col-sm-3">
+                                <h2>welcome</h2>
+                        </div>-->
+                        <h2 class="header smaller lighter blue">
+                            <!--<a href="__ROOT__/index.php/Home/autodesign/detail?id={$autoinfoArr[$i]['cur_version_id']}&version={$verArr[$i]['version']}">{$autoinfoArr[$i].title}</a>
+                            &nbsp;<small>创建时间:{$autoinfoArr[$i].create_time}&nbsp;&nbsp;&nbsp;当前正在使用版本号：{$verArr[$i].version}</small>-->
+                            <a href="__ROOT__/index.php/Home/autodesign/detail?id={$vo.cur_version_id}&version={$vo.verArr.version}">{$vo.title}</a>
+                            &nbsp;<small>创建时间:{$vo.create_time}&nbsp;&nbsp;&nbsp;当前正在使用版本号：{$vo.verArr.version}</small>
+                        </h2>
+                    </div>
+                    <!--</div>
+                    <div class="row">-->
+                    <div class="col-xs-12">
+                        <div class="well">
+                            <font size=+1>
+                            <?php 
+                            //echo   p_wiki_xhtml_dai_define($verArr[$i]['content']);
+                            echo   p_wiki_xhtml_dai_define($vo['verArr']['content']);
+                            //p_wiki_xhtml($ID,$REV,true,$DATE_AT);break;//html_show();//include(template('thumbnail.php')); 
+                            ?>
+                            </font>
+                        </div>
+                    </div>
+                    <!--</div>-->
+
+                </volist>
+            </div>
+
+        </div>
+        <div class="pagelist">{$page}</div>
+    </block>
+
+</html>
